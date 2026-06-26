@@ -83,7 +83,3 @@ Once the server is running, connecting players must configure their game mod to 
 ---
 
 *Developed by QuestionBlock64*
-
-```
-
-```
