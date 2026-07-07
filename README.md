@@ -75,7 +75,7 @@ Once the server is running, connecting players must configure their game mod to 
 * **Data Transmission**: Network streams are processed using UTF-8 encoding. The server reads incoming lines of text and immediately broadcasts them to all other active clients, explicitly excluding the original sender to prevent echo loops.
 * **Concurrency**: Each client connection is handled asynchronously via the thread pool (`ThreadPool.QueueUserWorkItem`) to ensure smooth, non-blocking message routing.
 
-## Extra Details:
+## Extra Details
 
 Please note that player puppets will not disappear from the current level unless you reload the level, swap levels, or close the game. This will be fixed in a future update for the main mod.
 
