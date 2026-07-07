@@ -1,8 +1,3 @@
-That is a smart addition. Giving users the option to just grab the executable from Releases while keeping the build instructions for developers makes the repository much more accessible.
-
-Here is the revised `README.md` incorporating the Quick Start and Building from Source sections.
-
-```markdown
 # MiSide Multiplayer Relay Server
 
 ## Overview
