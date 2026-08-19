@@ -138,7 +138,7 @@ New-NetFirewallRule -DisplayName "MiSide Relay" -Direction Inbound -Protocol TCP
 
 * Open the file BepInEx/config/MS_Multiplayer.cfg with Notepad.
 * Under [Networking], change the Server Host line to your IPv4 address from Step 4: Server Host = 192.168.x.xx (Replace 192.168.x.xx with your actual IP.). Make sure Server Port is 7777.
-*Save the file and launch the game.
+* Save the file and launch the game.
 
 
 ## Technical Details
