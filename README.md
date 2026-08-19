@@ -83,7 +83,7 @@ Once the server is running, connecting players must configure their game mod to 
 
 ---
 
-**Step 2: Open TCP port 7777 in Windows Firewall*
+**Step 2: Open TCP port 7777 in Windows Firewall**
 
 Choose one of the following methods.
 
