@@ -69,6 +69,78 @@ The server handles graceful shutdowns. You can stop the listener and cleanly dis
 
 Once the server is running, connecting players must configure their game mod to connect to the host. As noted in the server console upon startup, clients should set their `Networking.ServerHost` configuration to the host machine's LAN IP address or designated VPN/forwarding IP (such as Hamachi).
 
+
+## Detailed Host & Client Instructions
+
+**Step 1: Make the relay server listen on all network interfaces**
+
+* Open the folder where the relay server executable is located.
+* Find the file named settings.json and open it with Notepad (or any text editor).
+* Look for the "Server" section. You should see a line like: "Address": "127.0.0.1". Change it to "127.0.0.1" to "0.0.0.0" so it reads: "Address": "0.0.0.0".
+*Save the file and restart the relay server.
+
+**Now the relay server can accept connections from other computers, not just from the same PC.**
+
+---
+
+**Step 2: Open TCP port 7777 in Windows Firewall*
+
+Choose one of the following methods.
+
+**Method A – Command line (fastest)**
+
+* Press the Windows key, type powershell, right‑click Windows PowerShell and select Run as administrator.
+* Copy and paste this command, then press Enter:
+* 
+New-NetFirewallRule -DisplayName "MiSide Relay" -Direction Inbound -Protocol TCP -LocalPort 7777 -Action Allow
+
+* You should see a confirmation message. Close PowerShell.
+
+**Method B – GUI (if you prefer clicking)**
+
+* Press the Windows key, type Windows Defender Firewall, and open it.
+* Click Advanced settings on the left side.
+* Click Inbound Rules on the left.
+* Click New Rule… on the right.
+* Choose Port → Next.
+* Select TCP and enter 7777 in the Specific local ports field → Next.
+* Select Allow the connection → Next.
+* Make sure Domain, Private, and Public are all checked → Next.
+* Give it a name, e.g., MiSide Relay → Finish.
+
+---
+
+**Step 3: Make sure the relay server is actually running**
+
+* You should see the relay server console window open with the text:
+  
+  Listening on 0.0.0.0:7777 (TCP)
+  
+
+* If you don’t see that, double‑click the relay server executable to start it.
+
+---
+
+**Step 4: Find your local IP address**
+
+* Press Windows key + R, type cmd and press Enter.
+* In the black window, type ipconfig and press Enter.
+* Look for the section with your active network adapter (Wi‑Fi or Ethernet). You’ll see something like:
+* IPv4 Address . . . . . . . . . . . : 192.168.x.xx
+  
+ That number (192.168.x.xx in this example) is what other players need to put into their Server Host config.
+
+---
+
+**Step 5: Configure the other player's mod**
+
+**On the other player's PC, they must edit their mod config:**
+
+* Open the file BepInEx/config/MS_Multiplayer.cfg with Notepad.
+* Under [Networking], change the Server Host line to your IPv4 address from Step 4: Server Host = 192.168.x.xx (Replace 192.168.x.xx with your actual IP.). Make sure Server Port is 7777.
+*Save the file and launch the game.
+
+
 ## Technical Details
 
 * **Architecture**: The server utilizes a thread-safe `ConcurrentDictionary` to manage connected clients, assigning each connection a unique incremental ID.
