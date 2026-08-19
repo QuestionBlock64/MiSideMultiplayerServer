@@ -149,7 +149,7 @@ New-NetFirewallRule -DisplayName "MiSide Relay" -Direction Inbound -Protocol TCP
 
 ## Extra Details
 
-Please note that player puppets will not disappear from the current level unless you reload the level, swap levels, or close the game. This will be fixed in a future update for the main mod.
+Please note that this mod and it's server can and will bug out. Nothing is perfect.
 
 ---
 
